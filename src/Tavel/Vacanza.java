@@ -5,10 +5,12 @@ import java.time.LocalDate;
 public class Vacanza {
 
 	// attributi
-	private String destinazione, dataFine, dataInizio;
+	private String destinazione;
+	private LocalDate dataInizio;
+	private LocalDate dataFine;
 
 	// costruttore
-	public Vacanza(String destinazione, String dataInizio, String dataFine)
+	public Vacanza(String destinazione, LocalDate dataInizio, LocalDate dataFine)
 			throws IllegalArgumentException, NullPointerException {
 		// destinazione
 		validaDestinazione(destinazione);
@@ -32,20 +34,20 @@ public class Vacanza {
 		this.destinazione = destinazione;
 	}
 
-	public String getDataFine() {
-		return dataFine;
-	}
-
-	public void setDataFine(String dataFine) {
-		this.dataFine = dataFine;
-	}
-
-	public String getDataInizio() {
+	public LocalDate getDataInizio() {
 		return dataInizio;
 	}
 
-	public void setDataInizio(String dataInizio) {
+	public void setDataInizio(LocalDate dataInizio) {
 		this.dataInizio = dataInizio;
+	}
+
+	public LocalDate getDataFine() {
+		return dataFine;
+	}
+
+	public void setDataFine(LocalDate dataFine) {
+		this.dataFine = dataFine;
 	}
 
 	// metodi di controllo
@@ -56,15 +58,13 @@ public class Vacanza {
 		}
 	}
 
-	LocalDate oggi = LocalDate.now();
-
-	private void validaDataInizio(String dataInizio) {
+	private void validaDataInizio(LocalDate dataInizio) {
 		if (dataInizio == null) {
 			throw new NullPointerException("La data di inizio non può essere null");
 		}
 	}
 
-	private void validaDataFine(String dataFine) {
+	private void validaDataFine(LocalDate dataFine) {
 		if (dataFine == null) {
 			throw new NullPointerException("La di fine non può essere null");
 		}
